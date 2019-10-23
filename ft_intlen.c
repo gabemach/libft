@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmachado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gmachado <gmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 12:20:46 by gmachado          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:02 by gmachado         ###   ########.fr       */
+/*   Created: 2019/08/26 19:26:31 by gmachado          #+#    #+#             */
+/*   Updated: 2019/09/17 12:11:18 by gmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_intlen(int n)
 {
-	char *a;
-	char *b;
+	int i;
 
-	a = (char*)src;
-	b = (char*)dst;
-	while (n--)
+	i = (n <= 0) ? 1 : 0;
+	while (n != 0)
 	{
-		*b++ = *a++;
+		n /= 10;
+		i++;
 	}
-	return (dst);
+	return (i);
 }

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmachado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 12:20:46 by gmachado          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:02 by gmachado         ###   ########.fr       */
+/*   Created: 2019/03/10 17:25:49 by gmachado          #+#    #+#             */
+/*   Updated: 2019/03/11 15:39:44 by gmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_numswap(int *a, int *b)
 {
-	char *a;
-	char *b;
+	int t;
 
-	a = (char*)src;
-	b = (char*)dst;
-	while (n--)
-	{
-		*b++ = *a++;
-	}
-	return (dst);
+	t = *a;
+	*a = *b;
+	*b = t;
 }

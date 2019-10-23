@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmachado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 12:20:46 by gmachado          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:02 by gmachado         ###   ########.fr       */
+/*   Created: 2018/11/06 19:08:18 by gmachado          #+#    #+#             */
+/*   Updated: 2018/11/13 16:41:45 by gmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	char *a;
-	char *b;
-
-	a = (char*)src;
-	b = (char*)dst;
-	while (n--)
+	if (f && s)
 	{
-		*b++ = *a++;
+		while (*s != 0)
+		{
+			f(s++);
+		}
 	}
-	return (dst);
 }

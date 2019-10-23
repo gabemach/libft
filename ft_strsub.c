@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmachado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 12:20:46 by gmachado          #+#    #+#             */
-/*   Updated: 2018/11/13 16:37:02 by gmachado         ###   ########.fr       */
+/*   Created: 2018/11/08 16:58:16 by gmachado          #+#    #+#             */
+/*   Updated: 2018/11/09 13:02:56 by gmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *a;
-	char *b;
+	char		*out;
+	char		*str;
+	char const	*src;
 
-	a = (char*)src;
-	b = (char*)dst;
-	while (n--)
+	if (s)
 	{
-		*b++ = *a++;
+		str = ft_strnew(len);
+		out = str;
+		src = &s[start];
+		if (str)
+		{
+			while (*src != 0 && len > 0)
+			{
+				*str++ = *src++;
+				len--;
+			}
+			return (out);
+		}
+		else
+			return (NULL);
 	}
-	return (dst);
+	else
+		return (NULL);
 }

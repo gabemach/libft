@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmachado <gmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 18:04:26 by gmachado          #+#    #+#             */
-/*   Updated: 2019/09/11 17:33:13 by gmachado         ###   ########.fr       */
+/*   Created: 2019/05/29 13:01:20 by gmachado          #+#    #+#             */
+/*   Updated: 2019/09/10 18:18:41 by gmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+static int	uitoa_len(unsigned int n)
 {
-	void *dst;
-	char *clean;
+	int	len;
 
-	dst = malloc(size);
-	clean = dst;
-	if (dst)
+	len = 0;
+	if (n == 0)
+		len = 1;
+	while (n)
 	{
-		while (size != 0)
-		{
-			*clean++ = 0;
-			size--;
-		}
-		return (dst);
+		len++;
+		n /= 10;
 	}
-	else
+	return (len);
+}
+
+char		*ft_uitoa(unsigned int n)
+{
+	char	*str;
+	int		len;
+
+	len = uitoa_len(n);
+	str = ft_strnew(len);
+	if (str == NULL)
 		return (NULL);
+	if (n == 0)
+		str[0] = '0';
+	while (n != 0 && len >= 0)
+	{
+		str[len-- - 1] = n % 10 + 48;
+		n /= 10;
+	}
+	return (str);
 }
